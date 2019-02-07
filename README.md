@@ -20,4 +20,4 @@ One Product For Magento 1 compatible with: 1.7, 1.8, 1.8.1, 1.9
 If you find any issues with plugin or need the installation support, please contact support@evincemage.com
 
 ## Copyright and License
-COPYRIGHT © 2012-2018. ALL RIGHTS RESERVED - EVINCE DEVELOPMENT
+COPYRIGHT © 2012-2019. ALL RIGHTS RESERVED - EVINCE DEVELOPMENT
