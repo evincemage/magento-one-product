@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evince_Oneproduct>
+            <version>1.0.0</version>
+        </Evince_Oneproduct>
+    </modules>    
+    <global>
+        <models>
+            <evince_oneproduct>
+                <class>Evince_Oneproduct_Model</class>
+            </evince_oneproduct>
+            <checkout>
+                <rewrite>                    
+                    <cart>Evince_Oneproduct_Model_Cart</cart>
+                </rewrite>
+            </checkout>
+        </models>
+        <helpers>
+            <oneproduct>
+              <class>Evince_Oneproduct_Helper</class>
+            </oneproduct>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <checkout_cart_update_items_before>
+                <observers>
+                    <evince_oneproduct_catalog_product_type_prepare>
+                        <class>Evince_Oneproduct_Model_Observer</class>
+                        <method>cartUpdate</method>
+                    </evince_oneproduct_catalog_product_type_prepare>
+                </observers>
+            </checkout_cart_update_items_before>
+        </events>
+        <routers>
+            <checkout><!-- Override code starts-->
+                <args>
+                    <modules>
+                       <Evince_Oneproduct before="Mage_Checkout">Evince_Oneproduct</Evince_Oneproduct>
+                   </modules>
+                </args>
+            </checkout><!-- Override code ends-->
+        </routers>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <evince>
+                                            <title>Evince - All</title>
+                                        </evince>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>
